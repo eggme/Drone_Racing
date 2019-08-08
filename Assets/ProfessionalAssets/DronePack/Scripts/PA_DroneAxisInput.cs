@@ -70,8 +70,8 @@ namespace PA_DronePack
             #region Cache Components + Custom Input
             dcoScript = GetComponent<PA_DroneController>();
             dcScript = FindObjectOfType<PA_DroneCamera>();
-            if (inputType == InputType.Custom)
-            {
+            
+            if (inputType == InputType.Custom){
                 forwardBackward = cforwardBackward;
                 strafeLeftRight = cstrafeLeftRight;
                 riseLower = criseLower;
@@ -92,8 +92,7 @@ namespace PA_DronePack
             #endregion
         }
 
-        void Update()
-        {
+        void Update(){
             #region Input Axis Listeners
             if (forwardBackward != "")
             {

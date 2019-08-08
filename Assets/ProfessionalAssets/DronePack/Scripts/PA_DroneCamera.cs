@@ -8,7 +8,7 @@ namespace PA_DronePack
     public class PA_DroneCamera : MonoBehaviour
     {
         #region Variables
-        public enum CameraMode { thirdPerson, firstPerson }
+        public enum CameraMode { thirdPerson, firstPerson, Controller }
         public enum FollowMode { firm, smooth }
         public CameraMode cameraMode = CameraMode.thirdPerson;
         public FollowMode followMode = FollowMode.firm;
@@ -46,9 +46,11 @@ namespace PA_DronePack
         float liftForce;
         float targetRot;
         #endregion
+        public GameObject BlackController;
 
         void Start()
         {
+            BlackController = GameObject.Find("BlackController");
             #region Auto Find Targets / Calculate Distances
             if (findTarget) { target = FindObjectOfType<PA_DroneController>(); if (target == null) { Debug.LogWarning("PA_DroneCamera : Could Not Find A Target"); } }
             if (findFPS) { fpsPosition = GameObject.Find("FPSView").transform; if (fpsPosition == null) { Debug.LogWarning("PA_DroneCamera : Could Not Find FPS Position"); } }
@@ -121,6 +123,18 @@ namespace PA_DronePack
                 }
             }
             #endregion
+
+            if (cameraMode == CameraMode.Controller)
+            {
+                target.rigidBody.interpolation = RigidbodyInterpolation.Interpolate;
+                transform.position = fpsPosition.position;
+                transform.rotation = (!gyroscopeEnabled) ? Quaternion.Euler(target.transform.rotation.eulerAngles.x + scrollForce, fpsPosition.rotation.eulerAngles.y, fpsPosition.rotation.eulerAngles.z) : Quaternion.Euler(scrollForce, fpsPosition.rotation.eulerAngles.y, 0);
+                fpsPosition.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, target.transform.rotation.eulerAngles.y, target.transform.rotation.eulerAngles.z);
+                foreach (Rigidbody rigidBody in jitterRigidBodies)
+                {
+                    rigidBody.interpolation = RigidbodyInterpolation.Interpolate;
+                }
+            }
         }
 
         // Smooth follow mode is handled in FixedUpadte to avoid camera Jitter //
@@ -160,7 +174,19 @@ namespace PA_DronePack
         }
 
         #region Custom Functions
-        public void ChangeCameraMode() { cameraMode = (cameraMode == CameraMode.firstPerson) ? CameraMode.thirdPerson : CameraMode.firstPerson; }
+        public void ChangeCameraMode() { 
+            switch(cameraMode){
+                case CameraMode.firstPerson:
+                    cameraMode = CameraMode.Controller;
+                    break;
+                case CameraMode.thirdPerson:
+                    cameraMode = CameraMode.firstPerson;
+                    break;
+                case CameraMode.Controller:
+                    cameraMode = CameraMode.thirdPerson;
+                    break;
+            }
+        }
         public void ChangeFollowMode() { followMode = (followMode == FollowMode.smooth) ? FollowMode.firm : FollowMode.smooth; }
         public void ChangeGyroscope() { gyroscopeEnabled = !gyroscopeEnabled; }
         public void LiftInput(float input) { liftForce = (!invertYAxis) ? input * ySensivity : -input * ySensivity; }

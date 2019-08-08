@@ -7,6 +7,8 @@ namespace PA_DronePack
     public class PA_DroneController : MonoBehaviour
     {
         #region Movement Values
+        public GameObject controller;
+        
         [Tooltip("sets the drone's max forward speed")]
         public float forwardSpeed = 7f;
         [Tooltip("sets the drone's max backward speed")]
