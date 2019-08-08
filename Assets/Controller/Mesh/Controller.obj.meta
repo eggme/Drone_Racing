@@ -1,0 +1,191 @@
+fileFormatVersion: 2
+guid: 6bf2b9cdb4ddadb448a0501bfb7acce6
+timeCreated: 1517243395
+licenseType: Store
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: 1
+    100002: 2
+    100004: 3
+    100006: 4
+    100008: Circle_circle
+    100010: Circle_Square
+    100012: Circle_triangle
+    100014: Circle_X
+    100016: //RootNode
+    100018: Controller_low
+    100020: end
+    100022: Joy_left
+    100024: Joy_Right
+    100026: l1
+    100028: l2
+    100030: r1
+    100032: r2
+    100034: start
+    400000: 1
+    400002: 2
+    400004: 3
+    400006: 4
+    400008: Circle_circle
+    400010: Circle_Square
+    400012: Circle_triangle
+    400014: Circle_X
+    400016: //RootNode
+    400018: Controller_low
+    400020: end
+    400022: Joy_left
+    400024: Joy_Right
+    400026: l1
+    400028: l2
+    400030: r1
+    400032: r2
+    400034: start
+    2100000: 1Mat
+    2100002: 2Mat
+    2100004: 3Mat
+    2100006: 4Mat
+    2100008: Circle_circleMat
+    2100010: Circle_SquareMat
+    2100012: Circle_triangleMat
+    2100014: Circle_XMat
+    2100016: Controller_lowMat
+    2100018: endMat
+    2100020: Joy_leftMat
+    2100022: Joy_RightMat
+    2100024: l1Mat
+    2100026: l2Mat
+    2100028: r1Mat
+    2100030: r2Mat
+    2100032: startMat
+    2300000: 1
+    2300002: 2
+    2300004: 3
+    2300006: 4
+    2300008: Circle_circle
+    2300010: Circle_Square
+    2300012: Circle_triangle
+    2300014: Circle_X
+    2300016: Controller_low
+    2300018: end
+    2300020: Joy_left
+    2300022: Joy_Right
+    2300024: l1
+    2300026: l2
+    2300028: r1
+    2300030: r2
+    2300032: start
+    3300000: 1
+    3300002: 2
+    3300004: 3
+    3300006: 4
+    3300008: Circle_circle
+    3300010: Circle_Square
+    3300012: Circle_triangle
+    3300014: Circle_X
+    3300016: Controller_low
+    3300018: end
+    3300020: Joy_left
+    3300022: Joy_Right
+    3300024: l1
+    3300026: l2
+    3300028: r1
+    3300030: r2
+    3300032: start
+    4300000: 1
+    4300002: 2
+    4300004: 3
+    4300006: 4
+    4300008: Circle_circle
+    4300010: Circle_Square
+    4300012: Circle_triangle
+    4300014: Circle_X
+    4300016: Controller_low
+    4300018: end
+    4300020: Joy_left
+    4300022: Joy_Right
+    4300024: l1
+    4300026: l2
+    4300028: r1
+    4300030: r2
+    4300032: start
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
