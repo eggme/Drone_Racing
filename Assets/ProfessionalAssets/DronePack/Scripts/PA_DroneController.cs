@@ -213,7 +213,7 @@ namespace PA_DronePack
             #endregion
         }
 
-        void OnCollisionEnter(Collision newObject)
+        void OnCollisionEnter(Collision newObject) // 충돌임 ㄹㅇ찐
         {
             #region Rigidbody Collisions, SoundFX
             collisionMagnitude = newObject.relativeVelocity.magnitude;                    // record the collision force applied to rigibody's axises
@@ -224,6 +224,7 @@ namespace PA_DronePack
                 {                                                                         //
                     sparkSound.pitch = collisionMagnitude * 0.1f;                         // alter it's pitch by a fraction of the collison force
                     sparkSound.PlayOneShot(sparkSound.clip, collisionMagnitude * 0.05f);  // play the spark sound and alter it's volume by a fraction of the collison force
+                    ToggleMotor();   // 추가한것
                 }
             }
             if (collisionMagnitude > fallMinimumForce && fallAfterCollision)  // if the collision force is greater force than the fall threshold...
