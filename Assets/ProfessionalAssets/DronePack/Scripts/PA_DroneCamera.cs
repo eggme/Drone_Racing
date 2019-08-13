@@ -19,12 +19,12 @@ namespace PA_DronePack
         [Range(0.03f, 0.5f)]
         public float followSmoothing = 0.1f;
         [Range(0f, 7f)]
-        public float xSensivity = 2f;
+        public float xSensivity = 4f;
         [Range(0f, 7f)]
-        public float ySensivity = 0f;
+        public float ySensivity = 2f;
         public float height = 0.5f;
         public float distance = 1.5f;
-        public float angle = 19;
+        public float angle = 29;
 
         public bool findTarget = true;
         public bool autoPosition = true;
@@ -38,8 +38,8 @@ namespace PA_DronePack
 
         #region Hidden Variables
         Vector3 velocity;
-        float fpsMinAngle = -20;
-        float fpsMaxAngle = 70;
+        float fpsMinAngle = -40;
+        float fpsMaxAngle = 90;
         float angleV;
         float scrollForce;
         float turnForce;
@@ -87,7 +87,6 @@ namespace PA_DronePack
                 height += (angle > -60 && angle < 60) ? liftForce * 0.03f : 0f;
                 angle = Mathf.Clamp(angle + liftForce, -60, 60);
 
-
                 if (!freeLook)
                 {
                     targetRot = target.transform.eulerAngles.y;
@@ -126,14 +125,18 @@ namespace PA_DronePack
 
             if (cameraMode == CameraMode.Controller)
             {
-                target.rigidBody.interpolation = RigidbodyInterpolation.Interpolate;
-                transform.position = fpsPosition.position;
-                transform.rotation = (!gyroscopeEnabled) ? Quaternion.Euler(target.transform.rotation.eulerAngles.x + scrollForce, fpsPosition.rotation.eulerAngles.y, fpsPosition.rotation.eulerAngles.z) : Quaternion.Euler(scrollForce, fpsPosition.rotation.eulerAngles.y, 0);
-                fpsPosition.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, target.transform.rotation.eulerAngles.y, target.transform.rotation.eulerAngles.z);
-                foreach (Rigidbody rigidBody in jitterRigidBodies)
-                {
-                    rigidBody.interpolation = RigidbodyInterpolation.Interpolate;
-                }
+                transform.position = BlackController.transform.position;
+                transform.position = new Vector3(transform.position.x - 0.20f, transform.position.y + 0.19f , transform.position.z +0.3f);
+                transform.rotation = (!gyroscopeEnabled) ? Quaternion.Euler(30, 145, fpsPosition.rotation.eulerAngles.z) : Quaternion.Euler(scrollForce, fpsPosition.rotation.eulerAngles.y, 0);
+                fpsPosition.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, BlackController.transform.rotation.eulerAngles.y, BlackController.transform.rotation.eulerAngles.z);
+                // target.rigidBody.interpolation = RigidbodyInterpolation.Interpolate;
+                // transform.position = fpsPosition.position;
+                // transform.rotation = (!gyroscopeEnabled) ? Quaternion.Euler(target.transform.rotation.eulerAngles.x + scrollForce, fpsPosition.rotation.eulerAngles.y, fpsPosition.rotation.eulerAngles.z) : Quaternion.Euler(scrollForce, fpsPosition.rotation.eulerAngles.y, 0);
+                // fpsPosition.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, target.transform.rotation.eulerAngles.y, target.transform.rotation.eulerAngles.z);
+                // foreach (Rigidbody rigidBody in jitterRigidBodies)
+                // {
+                //     rigidBody.interpolation = RigidbodyInterpolation.Interpolate;
+                // }
             }
         }
 
